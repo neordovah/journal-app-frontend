@@ -7,9 +7,9 @@ const Notes = () => {
     const [notes, setNotes] = useState(["a", 2])
 
     return (
-        <>
+        <><div id="page-main" className="page-notes">
             <h1 id="title">Notes</h1>
-            <div id="page-main" className="page-notes">
+            
                 <ul>
                     <form>
                         <li><input type="text"></input></li>
@@ -17,7 +17,7 @@ const Notes = () => {
                     </form>
                     {notes && notes.map(note => {
                         return (
-                            <li>{note}</li>
+                            <li key={note}>{note}</li>
                         )
                     })}
                 </ul>

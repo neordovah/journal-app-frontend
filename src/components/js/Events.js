@@ -6,7 +6,7 @@ const Events = () => {
     const date = new Date()
     const [month, setMonth] = useState(date.getMonth() + 1)
     const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
-    console.log(daysInMonth)
+
     let monthArray = []
     for(let i = 0; i < daysInMonth; i++) {
         monthArray.push("")

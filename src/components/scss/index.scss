@@ -24,7 +24,12 @@ html, body {
     position: relative;
 }
 
-#page {
+#wrapper-login {
+    height: calc(100vh - 70px);
+    position: relative;
+}
+
+#page-main {
 
     @media (max-width: 500px) {
         
@@ -32,17 +37,12 @@ html, body {
     @media (min-width: 501px) {
         padding: 40px 100px;
     }
-
-    
+    width: 100%;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    padding: 100px;
     #title {
         text-align: center;
-    }
-    #page-main {
-        height: 100%;
-        margin: 20px;
-        padding: 50px;
-        
     }
 }

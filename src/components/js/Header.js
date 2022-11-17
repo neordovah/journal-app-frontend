@@ -1,12 +1,12 @@
 import React, {useContext} from "react";
-import { BrowserRouter as Router, Link, Navigate } from "react-router-dom";
+import {  Link } from "react-router-dom";
 import "../scss/header.scss"
 import Context from "./Context";
 
 const Header = () => {
 
     let [login, setLogin] = useContext(Context)
-    console.log(login)
+
     return (
         <header id="header">
             <ul>

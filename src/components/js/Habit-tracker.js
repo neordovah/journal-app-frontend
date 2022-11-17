@@ -21,9 +21,9 @@ const HabitTracker = () => {
                 <input type="text"></input>
                 <button type="submit">Add habit</button>
             </form>
-            {habits.map(habit => {
+            {habits.map((habit, index) => {
                 return (
-                    <div id="habit">
+                    <div id="habit" key={index}>
                         <p>habit title</p>
                         {monthArray.map((day, index) => {
                             return (

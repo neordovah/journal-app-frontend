@@ -7,8 +7,9 @@ const DailyTodo = () => {
 
     return (
         <>
+        <div id="page-main" className="page-todo">
             <h1 id="title">ToDo list</h1>
-            <div id="page-main" className="page-todo">
+            
                 <ul>
                     <form>
                         <li><input type="text"></input></li>
