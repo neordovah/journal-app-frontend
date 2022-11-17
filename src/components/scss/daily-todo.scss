@@ -1,0 +1,11 @@
+.page-todo {
+    form {
+        display: flex;
+        input, input:focus {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid gray;
+        }
+    }
+}

@@ -1,7 +1,9 @@
-.page-notes {
-    background-color: bisque;
+.page-daily-logs {
+    display: flex;
+    flex-direction: column;
         form {
             display: flex;
+            flex-direction: column;
             input, input:focus {
                 background-color: transparent;
                 border: none;
@@ -9,4 +11,5 @@
                 border-bottom: 2px solid gray;
             }
         }
+
 }
