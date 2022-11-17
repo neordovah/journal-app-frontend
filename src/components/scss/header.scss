@@ -1,0 +1,20 @@
+#header {
+    background-color: darkslateblue;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    grid-column: 1/-1;
+    ul {
+        display: flex;
+        list-style: none;
+    }
+    li {
+        font-size: 20px;
+        padding: 10px;
+        color: white;
+    }
+}
+
+
+
+

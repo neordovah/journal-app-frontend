@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+#root {
+    min-height: 100vh;
+    
+    //display: grid;
+    //grid-template-columns: 1fr 4fr;
+    //grid-template-rows: 0.5fr 2fr 0.25fr;
+}
+
+#wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    min-height: calc(100vh - 70px);
+    position: relative;
+}
+
+#page {
+    padding: 40px 100px;
+}

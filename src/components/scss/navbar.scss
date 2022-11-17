@@ -1,0 +1,30 @@
+#navbar {
+    width: 100%;
+    background-color: rgb(183, 124, 183);
+    height: 100%;
+    padding: 50px;
+    position: relative;
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+    ul {
+    display: block;
+    padding: 20px;
+    list-style: none;
+    }
+    li {
+        font-size: 20px;
+        padding: 10px;
+        color: black;
+    }
+    .visible {
+
+    }
+    .hidden {
+        display: none;
+    }
+    #daily-sub {
+        position: relative;
+        left: 30px;
+    }
+
+}
+
