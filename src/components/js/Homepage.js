@@ -7,8 +7,7 @@ const Homepage = () => {
 
     const [quote, setQuote] = useState(null)
     useEffect(() => {
-        axios.get("http://localhost:3001/").then(result => {
-            console.log(result.data[0].q)
+        axios.get("http://localhost:3001/quote").then(result => {
             setQuote(result.data[0].q)
         })
     }, [])
