@@ -2,11 +2,26 @@
     background-color: bisque;
         form {
             display: flex;
+            gap: 30px;
             input, input:focus {
                 background-color: transparent;
                 border: none;
                 outline: none;
-                border-bottom: 2px solid gray;
+                border-bottom: 2px solid gray; 
+                //margin-right: 30px;
+                width: 100%;
             }
         }
+    li {
+        width: 50%;
+        word-wrap: break-word;
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .note {
+        display: flex;
+    }
 }

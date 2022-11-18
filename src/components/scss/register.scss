@@ -1,24 +1,32 @@
-form {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    label {
+#page-login {
+    form {
+        position: relative;
         display: flex;
-        justify-content: flex-end;
-    }
-    input {
-        margin-left: 10px;
+        flex-direction: column;
+        label {
+            display: flex;
+            justify-content: flex-end;
+            //word-wrap: break-word;
+        }
+        input {
+            margin-left: 10px;
+        }
     }
 }
 .alert-visible {
     height: 30px;
-    width: 240px;
+    width: 300px;
     background-color: rgb(106, 207, 247);
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 20px;
 }
 .alert-hidden {
     height: 30px;

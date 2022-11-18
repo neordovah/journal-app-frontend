@@ -17,11 +17,11 @@ import Register from "./Register"
 
 const App = () => {
     const [login, setLogin] = useState(false)
-    const user = null
+    const [user, setUser] = useState(null)
 
     return (
         <>
-        <Context.Provider value={[login, setLogin, user]}>
+        <Context.Provider value={[login, setLogin, user, setUser]}>
             <Header />
             <div id={login ? "wrapper" : "wrapper-login"}>
                 {login && <Navbar />}

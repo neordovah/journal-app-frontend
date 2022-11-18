@@ -5,7 +5,14 @@ import Context from "./Context";
 
 const Header = () => {
 
-    let [login, setLogin] = useContext(Context)
+    let [login, setLogin, user] = useContext(Context)
+
+    const handleLogin = () => {
+        if(login === true) {
+            setLogin(false)
+        }
+    }
+
 
     return (
         <header id="header">
@@ -14,7 +21,7 @@ const Header = () => {
                     <li id="homepage-btn">Journal</li>
                 </Link>
                 <Link to="/login">
-                    <li id="login-btn" onClick={() => setLogin(!login)}>{login ? "Logout" : "Login"}</li>
+                    <li id="login-btn" onClick={() => handleLogin()}>{login ? "Logout" : "Login"}</li>
                 </Link>
             </ul>
         </header>

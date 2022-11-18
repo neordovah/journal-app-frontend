@@ -10,7 +10,7 @@ const Login = () => {
     const [password, setPassword] = useState(null)
     const [alert, setAlert] = useState({state: false, msg: ""})
 
-    let [login, setLogin, user] = useContext(Context)
+    let [login, setLogin, user, setUser] = useContext(Context)
 
     let navigate = useNavigate()
     
@@ -18,9 +18,22 @@ const Login = () => {
         e.preventDefault()
         if( username && password) {
             axios.post("http://localhost:3001/login", {username, password}).then(result => {
-            console.log(result)
-                if(result.data !== "error") {
-                    user = result
+                console.log(result)
+                if(result.data === "error-noUser") {
+                    setAlert({state: true, msg: "User doesn't exist!"})
+                    setTimeout(() => {
+                        setAlert(false)
+                    }, 3000)
+                }
+                else if(result.data === "error") {
+                    setAlert({state: true, msg: "User or password do not match!"})
+                    setTimeout(() => {
+                        setAlert(false)
+                    }, 3000)
+                }
+                else if(result.data !== "error") {
+                    setUser(result.data)
+                    console.log(user)
                     setLogin(true)
                     setAlert(false)
                     navigate(`/`)
@@ -37,7 +50,7 @@ const Login = () => {
                 <label>Username
                 <input type="text" name="username" autoComplete="off" onChange={(e) => setUsername(e.target.value)} /></label>
                 <label>Password
-                <input type="text" name="password" autoComplete="off" onChange={(e) => setPassword(e.target.value)} /></label>
+                <input type="password" name="password" autoComplete="off" onChange={(e) => setPassword(e.target.value)} /></label>
                 <button type="submit" onClick={(e) => handleLogin(e)}>Login</button>
                 <Link to="/register">
                     <p>Don't have an account? Register</p>
