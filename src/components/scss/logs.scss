@@ -1,0 +1,11 @@
+#page-logs {
+    padding: 50px 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    position: relative;
+    li {
+        position: relative;
+        left: 40px;
+    }
+}

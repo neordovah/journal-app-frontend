@@ -1,12 +1,12 @@
 #navbar {
 
 
-    @media (max-width: 500px) {
+   /* @media (max-width: 500px) {
         display: none;
     }
     @media (min-width: 501px) {
       display: block;
-    }
+    }*/
 
     width: 100%;
     background-color: rgb(183, 124, 183);
@@ -23,12 +23,7 @@
         padding: 10px;
         color: black;
     }
-    .visible {
-
-    }
-    .hidden {
-        display: none;
-    }
+    
     #daily-sub {
         position: relative;
         left: 30px;
@@ -36,3 +31,9 @@
 
 }
 
+.visible {
+        display: block;
+    }
+    .hidden {
+        display: none;
+    }

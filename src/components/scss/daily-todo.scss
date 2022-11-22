@@ -1,11 +1,24 @@
 .page-todo {
+    gap: 30px;
     form {
         display: flex;
+        gap: 30px;
         input, input:focus {
             background-color: transparent;
             border: none;
             outline: none;
-            border-bottom: 2px solid gray;
+            border-bottom: 2px solid gray; 
+            //margin-right: 30px;
+            width: 100%;
         }
+        button {
+        width: 100px;
+        height: 40px;
     }
+    }
+    .note {
+        display: flex;
+        gap: 20px;
+    }
+    
 }

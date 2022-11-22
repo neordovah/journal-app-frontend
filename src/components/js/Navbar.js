@@ -1,14 +1,18 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../scss/navbar.scss"
+import Context from "./Context";
 
 const Navbar = () => {
 
+    let [login, setLogin, user, setUser, width, setWidth, showNav, setShowNav] = useContext(Context)
 
     const [dailyExpand, setDailyExpand] = useState(false)
 
+    console.log(showNav)
+
     return (
-        <nav id="navbar">
+        <nav id="navbar" className={showNav ? "visible" : "hidden"}>
             <ul>
                 <div id="daily" onMouseLeave={() => setDailyExpand(!dailyExpand)}>
                 <Link>

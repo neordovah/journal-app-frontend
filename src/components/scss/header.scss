@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     grid-column: 1/-1;
+    position: relative;
     ul {
         display: flex;
         list-style: none;
@@ -17,6 +18,18 @@
         color: white;
         font-size: 16px;
         justify-self: end;
+    }
+    #show-nav {
+        width: 50px;
+        position: absolute;
+        right: 40px;
+        height: 40px;
+    }
+    .hidden {
+        display: none;
+    }
+    .visible {
+
     }
 }
 

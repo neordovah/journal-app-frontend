@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./Header"
 import Login from "./Login";
@@ -18,10 +18,33 @@ import Register from "./Register"
 const App = () => {
     const [login, setLogin] = useState(false)
     const [user, setUser] = useState(null)
+    const [width, setWidth] = useState(null)
+    const [showNav, setShowNav] = useState(null)
 
+    function getWindowDimensions() {
+        const { innerWidth: width, innerHeight: height } = window;
+        console.log(width)
+        let screenWidth = width
+        if(screenWidth > 500) {
+            console.log(width)
+            setWidth(true)
+            setShowNav(true)
+        } else {
+            setWidth(false)
+            setShowNav(false)
+            console.log(width)
+            
+        }
+      }
+
+      useEffect(() => {
+        getWindowDimensions()
+        window.addEventListener('resize', getWindowDimensions)
+      }, [])
+console.log(width)
     return (
         <>
-        <Context.Provider value={[login, setLogin, user, setUser]}>
+        <Context.Provider value={[login, setLogin, user, setUser, width, setWidth, showNav, setShowNav]}>
             <Header />
             <div id={login ? "wrapper" : "wrapper-login"}>
                 {login && <Navbar />}

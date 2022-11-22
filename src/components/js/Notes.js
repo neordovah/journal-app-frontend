@@ -12,7 +12,7 @@ const Notes = () => {
 
     let [login, setLogin, user, setUser] = useContext(Context)
 
-    useEffect(() => {
+    const getNotes = () => {
         axios.get("http://localhost:3001/users").then(result => {
             result.data.map((person) => {
                 if(person.username === user.username) { 
@@ -20,18 +20,23 @@ const Notes = () => {
                 }
             })
         })
-    }, [notes])
+    }
 
-    const handleSubmit = (e) => {
+    useEffect(() => {
+        getNotes()
+    }, [])
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
         if(input) {
             let newNotes = notes
             newNotes.push(input)
-            setNotes(newNotes)
+            setNotes([...newNotes])
             axios.put("http://localhost:3001/notes", {newNotes})
-
         }
+        
     }
+    console.log(notes)
 
     const handleDeleteNote = (e) => {
         let delete_index = Array.from(e.target.parentElement.parentElement.children).indexOf(e.target.parentElement) - 1
@@ -40,8 +45,8 @@ const Notes = () => {
                 return note
             }
         })
-        setNotes(newNotes)
         axios.put("http://localhost:3001/notes", {newNotes})
+        setNotes(newNotes)
     }
 
     return (
@@ -53,10 +58,10 @@ const Notes = () => {
                         <li><input type="text" onChange={(e) => setInput(e.target.value)}></input></li>
                         <button type="submit" onClick={(e) => handleSubmit(e)}>Add note</button>
                     </form>
-                    {notes && notes.map(note => {
+                    {notes && notes.map((note, index) => {
                         return (
-                            <div className="note" key={note}>
-                                <li key={note}>{note}</li>
+                            <div className="note" key={index}>
+                                <li key={index}>{note}</li>
                                 <button onClick={(e) => handleDeleteNote(e)}>x</button>
                             </div>
                             

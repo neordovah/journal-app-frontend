@@ -18,15 +18,28 @@ html, body {
 }
 
 #wrapper {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
+    
     min-height: calc(100vh - 70px);
     position: relative;
+    @media (max-width: 500px) {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    @media (min-width: 501px) {
+
+      display: grid;
+    grid-template-columns: 1fr 4fr;
+    }
 }
 
 #wrapper-login {
     height: calc(100vh - 70px);
     position: relative;
+}
+
+#page {
+    padding: 100px;
 }
 
 #page-main {

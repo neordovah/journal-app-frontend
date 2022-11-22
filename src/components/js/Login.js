@@ -18,7 +18,6 @@ const Login = () => {
         e.preventDefault()
         if( username && password) {
             axios.post("http://localhost:3001/login", {username, password}).then(result => {
-                console.log(result)
                 if(result.data === "error-noUser") {
                     setAlert({state: true, msg: "User doesn't exist!"})
                     setTimeout(() => {
@@ -33,7 +32,6 @@ const Login = () => {
                 }
                 else if(result.data !== "error") {
                     setUser(result.data)
-                    console.log(user)
                     setLogin(true)
                     setAlert(false)
                     navigate(`/`)
