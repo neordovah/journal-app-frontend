@@ -5,7 +5,6 @@ import Context from "./Context";
 const Events = () => {
 
     let [login, setLogin, user] = useContext(Context)
-    console.log(user, " A")
 
     const date = new Date()
     const [month, setMonth] = useState(date.getMonth() + 1)

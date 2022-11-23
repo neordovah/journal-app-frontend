@@ -34,9 +34,7 @@ const Notes = () => {
             setNotes([...newNotes])
             axios.put("http://localhost:3001/notes", {newNotes})
         }
-        
     }
-    console.log(notes)
 
     const handleDeleteNote = (e) => {
         let delete_index = Array.from(e.target.parentElement.parentElement.children).indexOf(e.target.parentElement) - 1
@@ -61,8 +59,8 @@ const Notes = () => {
                     {notes && notes.map((note, index) => {
                         return (
                             <div className="note" key={index}>
-                                <li key={index}>{note}</li>
                                 <button onClick={(e) => handleDeleteNote(e)}>x</button>
+                                <li key={index}>{note}</li>
                             </div>
                             
                         )

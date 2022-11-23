@@ -1,4 +1,4 @@
-#page-logs {
+.page-logs {
     padding: 50px 100px;
     display: flex;
     flex-direction: column;
@@ -7,5 +7,18 @@
     li {
         position: relative;
         left: 40px;
+    }
+    #log-date {
+        text-align: center;
+    }
+    #log {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-left: 20px;
+        font-size: 18px;
+        border: 2px solid darkgray;
+        border-radius: 12px;
+        padding: 30px;
     }
 }

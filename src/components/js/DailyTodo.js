@@ -57,7 +57,6 @@ const DailyTodo = () => {
         }
         
     }
-    console.log(todos)
 
     const handleDeleteTodo = (e) => {
         let delete_index = Array.from(e.target.parentElement.parentElement.children).indexOf(e.target.parentElement) - 2
@@ -68,7 +67,6 @@ const DailyTodo = () => {
         })
         axios.put("http://localhost:3001/todos", {newTodos})
         setTodos(newTodos) 
-        console.log(delete_index)
     }
 
     return (
@@ -80,9 +78,9 @@ const DailyTodo = () => {
                     </form>
                     {todos && todos.map((todo, index) => {
                         return (
-                            <div className="note" key={index}>
-                                <p key={index}>{todo}</p>
+                            <div className="todo" key={index}>
                                 <button onClick={(e) => handleDeleteTodo(e)}>x</button>
+                                <p key={index}>{todo}</p>
                             </div>
                         )
                     })}

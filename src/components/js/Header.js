@@ -11,10 +11,7 @@ const Header = () => {
     
     useEffect(()=> {
         setShowNav(width)
-        console.log(width)
     }, [])
-
-    console.log(showNav, width)
 
     const handleLogin = () => {
         if(login === true) {

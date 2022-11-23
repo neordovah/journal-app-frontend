@@ -14,7 +14,6 @@ const Logs = () => {
         //setMessage("loading...")
         await axios.get("http://localhost:3001/logs").then(result => {
             setLogs(result.data)
-            //console.log(result.data, logs)
             if(logs == false) {
                 setMessage("empty...")
             } else {
@@ -22,20 +21,20 @@ const Logs = () => {
             }
         })
     }
-     
-    //console.log(logs)
 
     useEffect(() => {
         getLogs()
         
     }, [])
-    //console.log(message)
+
+    
     return (
-        <div id="page-logs">
+        <div id="page-main" className="page-logs">
+            <h1 id="title">Logs</h1>
             {logs == false && <h1>{message}</h1>}
-            {(logs != false) && logs.map((log, index) => {
+            {(logs != false) && logs.reverse().map((log, index) => {
                 return (
-                    <div id="log">
+                    <div id="log" key={index}>
                         <h1 id="log-date">{log.date}</h1>
                         <p>Rating for this day was: {log.rating}%</p>
                         <p>Three things that made you happy this day:</p>

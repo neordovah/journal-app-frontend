@@ -23,17 +23,13 @@ const App = () => {
 
     function getWindowDimensions() {
         const { innerWidth: width, innerHeight: height } = window;
-        console.log(width)
         let screenWidth = width
         if(screenWidth > 500) {
-            console.log(width)
             setWidth(true)
             setShowNav(true)
         } else {
             setWidth(false)
             setShowNav(false)
-            console.log(width)
-            
         }
       }
 
@@ -41,7 +37,6 @@ const App = () => {
         getWindowDimensions()
         window.addEventListener('resize', getWindowDimensions)
       }, [])
-console.log(width)
     return (
         <>
         <Context.Provider value={[login, setLogin, user, setUser, width, setWidth, showNav, setShowNav]}>

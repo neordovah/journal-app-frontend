@@ -9,7 +9,6 @@ const Navbar = () => {
 
     const [dailyExpand, setDailyExpand] = useState(false)
 
-    console.log(showNav)
 
     return (
         <nav id="navbar" className={showNav ? "visible" : "hidden"}>
@@ -32,9 +31,7 @@ const Navbar = () => {
                 <Link to="/notes">
                     <li id="notes-btn">Notes</li>
                 </Link>
-                <Link to="/events">
-                    <li id="events-btn">Events</li>
-                </Link>
+                
                 <Link to="/logs">
                     <li id="logs-btn">Check logs</li>
                 </Link>
@@ -42,5 +39,8 @@ const Navbar = () => {
         </nav>
     )
 }
+                /*<Link to="/events">
+                    <li id="events-btn">Events</li>
+                </Link>*/
 
 export default Navbar

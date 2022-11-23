@@ -12,6 +12,7 @@ const DailyLogs = () => {
     const [dailyHappy, setDailyHappy] = useState([null, null, null])
     const [dailyJournal, setDailyJournal] = useState(null)
     const [dailyDate, setDailyDate] = useState(null)
+    const [alert, setAlert] = useState(false)
 
     //const [dailyLogsDB, setDailyLogsDB] = useState(null)
 
@@ -31,23 +32,24 @@ const DailyLogs = () => {
     const getDailyLogs = async (callback) => {
         
         await axios.get("http://localhost:3001/dailyLogs").then(result => {
+            //console.log(result.data[0].dailyLogs)
             if(!result.data) {
                 return
             }
             else if(result.data) {
-                let dailyLogsDB = (result.data[0].dailyLogs)
-            
+                let dailyLogsDB = (result.data.dailyLogs[0])
+                console.log(dailyLogsDB)
                 if(callback) { 
                     let date = getDate()
                     setDailyDate(date)
-                    console.log(dailyDate, dailyLogsDB.date)
                     if(dailyLogsDB) {
+                       // console.log(dailyLogsDB)
+                        //console.log(date, dailyLogsDB.date)
                         if(date === dailyLogsDB.date) {
                             setDailyLogs(dailyLogsDB)
                             setDailyRating(dailyLogsDB.rating)
                             setDailyHappy([...dailyLogsDB.happy])
                             setDailyJournal(dailyLogsDB.journal)
-                            console.log("its the same date")
                         }
                     }
                 }
@@ -55,23 +57,30 @@ const DailyLogs = () => {
         }) 
     }
 
-
-
     useEffect(() => {
         getDailyLogs(true)        
     }, [])
-    
 
     useEffect(() => {
         setDailyLogs({rating: dailyRating, happy: dailyHappy, journal: dailyJournal, date: dailyDate})
-    }, [dailyRating, dailyHappy, dailyJournal])
+    }, [dailyRating, dailyHappy, dailyJournal]) 
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
         
-        if(dailyHappy && dailyJournal) {
-            await axios.put("http://localhost:3001/dailyLogs", {dailyLogs})
-            await axios.put("http://localhost:3001/logs", {dailyLogs})
+        if(dailyHappy[0] && dailyHappy[1] && dailyHappy[2] && dailyJournal) {
+            axios.put("http://localhost:3001/dailyLogs", {dailyLogs})
+            axios.put("http://localhost:3001/logs", {dailyLogs})
+            setAlert({state: true, msg: "Submitted successfuly!"})
+            setTimeout(() => {
+                setAlert(false)
+            }, 3000)
+        }
+        else {
+            setAlert({state: true, msg: "All fields must be provided!"})
+            setTimeout(() => {
+                setAlert(false)
+            }, 3000)
         }
     }
 
@@ -84,6 +93,7 @@ const DailyLogs = () => {
 
     return (
         <div id="page-main" className="page-daily-logs">
+            <h1 id="title">Daily logs</h1>
             <form>
                 <p>How would you rate this day?</p>
                 <input type="range" value={dailyRating} onChange={(e) => 
@@ -108,9 +118,12 @@ const DailyLogs = () => {
                     setDailyJournal(e.target.value)
                     e.target.value = dailyJournal
                     }}></textarea>
-
+<div id="alert-submitted" className={alert.state ? "daily-visible" : "daily-hidden"}>
+                <p id="alert-msg">{alert.state && alert.msg}</p>
+            </div>
                 <button type="submit" onClick={(e) => handleSubmit(e)}>Submit</button>
             </form>
+            
         </div>
     )
 }

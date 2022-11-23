@@ -1,22 +1,52 @@
 .page-habit {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
     form {
+        margin-top: 20px;
         display: flex;
         justify-content: center;
+        gap: 30px;
         input {
-            width: 400px;
+            width: 200px;
             height: 30px;
         }
         button {
-            width: 100px;
+            width:80px;
             height: 30px;
+            
         }
     }
     .track-day {
-        height: 10px;
-        width: 10px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        width: 30px;
         border: 2px solid black;
+        p {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+        
     }
     #habit {
+        padding: 20px;
         display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        #habit-title {
+            font-size: 20px;
+        }
+        button {
+            height: 25px;
+            width: 25px;
+            cursor: pointer;
+        }
     }
+}
+.clicked {
+            background-color: greenyellow;
 }
