@@ -45,7 +45,7 @@ const HabitTracker = () => {
             newHabits.push({title: input, days: monthArray})
             setHabits([...newHabits])
             console.log(newHabits)
-            axios.put("http://localhost:3001/habits", {newHabits})
+            axios.put("https://journal-app-xud3.onrender.com/habits", {newHabits})
         }
     }
 
@@ -55,7 +55,7 @@ const HabitTracker = () => {
         let newHabits = habits
         newHabits[habit_index].days[change_index] = !newHabits[habit_index].days[change_index]
         setHabits([...newHabits])
-        axios.put("http://localhost:3001/habits", {newHabits})
+        axios.put("https://journal-app-xud3.onrender.com/habits", {newHabits})
     }
 
 
