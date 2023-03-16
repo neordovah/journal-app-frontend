@@ -12,7 +12,7 @@ const Logs = () => {
 
     const getLogs = async () => {
         //setMessage("loading...")
-        await axios.get("http://localhost:3001/logs").then(result => {
+        await axios.get("https://journal-app-xud3.onrender.com/logs").then(result => {
             setLogs(result.data)
             if(logs == false) {
                 setMessage("empty...")
