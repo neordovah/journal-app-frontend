@@ -31,7 +31,7 @@ const DailyLogs = () => {
 
     const getDailyLogs = async (callback) => {
         
-        await axios.get("http://localhost:3001/dailyLogs").then(result => {
+        await axios.get("https://journal-app-xud3.onrender.com/dailyLogs").then(result => {
             //console.log(result.data[0].dailyLogs)
             if(!result.data) {
                 return
@@ -69,8 +69,8 @@ const DailyLogs = () => {
         e.preventDefault()
         
         if(dailyHappy[0] && dailyHappy[1] && dailyHappy[2] && dailyJournal) {
-            axios.put("http://localhost:3001/dailyLogs", {dailyLogs})
-            axios.put("http://localhost:3001/logs", {dailyLogs})
+            axios.put("https://journal-app-xud3.onrender.com/dailyLogs", {dailyLogs})
+            axios.put("https://journal-app-xud3.onrender.com/logs", {dailyLogs})
             setAlert({state: true, msg: "Submitted successfuly!"})
             setTimeout(() => {
                 setAlert(false)
