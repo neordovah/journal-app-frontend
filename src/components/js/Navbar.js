@@ -18,9 +18,9 @@ const Navbar = () => {
                     <li id="daily-btn" onMouseEnter={() => setDailyExpand(!dailyExpand)} >Daily</li>
                 </Link>
                 <div id="daily-sub" className={dailyExpand ? "visible" : "hidden"}>
-                    <Link to="/daily/todo">
-                        <li id="daily-todo-btn">To Do</li>
-                    </Link>
+//                     <Link to="/daily/todo">
+//                         <li id="daily-todo-btn">To Do</li>
+//                     </Link>
                     <Link to="/daily/logs">
                         <li id="daily-logs-btn">Logs</li>
                     </Link>
