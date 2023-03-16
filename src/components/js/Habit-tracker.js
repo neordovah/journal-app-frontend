@@ -13,7 +13,7 @@ const HabitTracker = () => {
     
 
     const getHabits = () => {
-        axios.get("http://localhost:3001/habits").then(result => {
+        axios.get("https://journal-app-xud3.onrender.com/habits").then(result => {
             setHabits(result.data)
         })
     }
@@ -30,7 +30,7 @@ const HabitTracker = () => {
             }
         })
         setHabits(newHabits)
-        axios.put("http://localhost:3001/habits", {newHabits}) 
+        axios.put("https://journal-app-xud3.onrender.com/habits", {newHabits}) 
     }
 
     const handleSubmit = (e) => {
