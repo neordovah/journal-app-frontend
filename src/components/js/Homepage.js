@@ -9,7 +9,7 @@ const Homepage = () => {
     const [quote, setQuote] = useState(null)
     const [author, setAuthor] = useState(null)
     useEffect(() => {
-        axios.get("http://localhost:3001/quote").then(result => {
+        axios.get("https://journal-app-xud3.onrender.com/quote").then(result => {
             setQuote(result.data[0].q)
             setAuthor(result.data[0].a)
         })
