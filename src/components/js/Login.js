@@ -16,7 +16,13 @@ const Login = () => {
     
     const handleLogin = (e) => {
         e.preventDefault()
-        if( username && password) {
+        if(!username || !password) {
+            setAlert({state: true, msg: "All values must be provided!"})
+            setTimeout(() => {
+                setAlert(false)
+              }, 3000)
+        }
+        else if( username && password) {
             axios.post("https://journal-app-xud3.onrender.com/login", {username, password}).then(result => {
                 if(result.data === "error-noUser") {
                     setAlert({state: true, msg: "User doesn't exist!"})
