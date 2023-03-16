@@ -13,7 +13,7 @@ const Notes = () => {
     let [login, setLogin, user, setUser] = useContext(Context)
 
     const getNotes = () => {
-        axios.get("http://localhost:3001/users").then(result => {
+        axios.get("https://journal-app-xud3.onrender.com/users").then(result => {
             result.data.map((person) => {
                 if(person.username === user.username) { 
                     setNotes(person.notes)
@@ -32,7 +32,7 @@ const Notes = () => {
             let newNotes = notes
             newNotes.push(input)
             setNotes([...newNotes])
-            axios.put("http://localhost:3001/notes", {newNotes})
+            axios.put("https://journal-app-xud3.onrender.com/notes", {newNotes})
         }
     }
 
