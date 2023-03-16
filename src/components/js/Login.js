@@ -17,7 +17,7 @@ const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault()
         if( username && password) {
-            axios.post("http://localhost:3001/login", {username, password}).then(result => {
+            axios.post("https://journal-app-xud3.onrender.com/login", {username, password}).then(result => {
                 if(result.data === "error-noUser") {
                     setAlert({state: true, msg: "User doesn't exist!"})
                     setTimeout(() => {
