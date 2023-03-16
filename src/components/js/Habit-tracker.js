@@ -23,7 +23,7 @@ const HabitTracker = () => {
     }, [])
 
     const handleDeleteHabit = (e) => {
-        let delete_index = Array.from(e.target.parentElement.parentElement.children).indexOf(e.target.parentElement) - 1
+        let delete_index = Array.from(e.target.parentElement.parentElement.children).indexOf(e.target.parentElement) - 2
         let newHabits = habits.filter((habit, index) => {
             if(index !== delete_index) {
                 return habit
@@ -51,7 +51,7 @@ const HabitTracker = () => {
 
     const handleChangeDay = (e) => {
         let change_index = Array.from(e.target.parentElement.parentElement.children).indexOf(e.target.parentElement) - 2
-        let habit_index = Array.from(e.target.parentElement.parentElement.parentElement.children).indexOf(e.target.parentElement.parentElement) - 1
+        let habit_index = Array.from(e.target.parentElement.parentElement.parentElement.children).indexOf(e.target.parentElement.parentElement) - 2
         let newHabits = habits
         newHabits[habit_index].days[change_index] = !newHabits[habit_index].days[change_index]
         setHabits([...newHabits])
@@ -66,7 +66,7 @@ const HabitTracker = () => {
                 <input type="text" onChange={(e) => setInput(e.target.value)}></input>
                 <button type="submit" onClick={(e) => handleSubmit(e)}>Add habit</button>
             </form>
-            {habits.map((habit, index) => {
+            {habits?.map((habit, index) => {
                 return (
                     <div id="habit" key={index}>
                         <button onClick={(e) => handleDeleteHabit(e)}>x</button>
