@@ -43,7 +43,7 @@ const Notes = () => {
                 return note
             }
         })
-        axios.put("http://localhost:3001/notes", {newNotes})
+        axios.put("https://journal-app-xud3.onrender.com/notes", {newNotes})
         setNotes(newNotes)
     }
 
