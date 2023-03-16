@@ -36,7 +36,7 @@ const Register = () => {
         else if(name && username && password) {
             const asyncFunction = async () => {
                 let alreadyExists = 0
-                await axios.get("http://localhost:3001/users").then(result => {
+                await axios.get("https://journal-app-xud3.onrender.com/users").then(result => {
                     result.data.map((user) => {
                         if(user.username === username) {
                             setAlert({state: true, msg: "This username already exists!"})
@@ -48,7 +48,7 @@ const Register = () => {
                     })
                 })
                 if(alreadyExists === 1 ) return
-                await axios.post("http://localhost:3001/register", {name, username, password})
+                await axios.post("https://journal-app-xud3.onrender.com/register", {name, username, password})
                 setAlert({state: true, msg: "Account created!"})
                 setTimeout(() => {
                     setAlert(false)
