@@ -34,7 +34,7 @@ const DailyTodo = () => {
     let [login, setLogin, user, setUser] = useContext(Context)
 
     const getTodos = () => {
-        axios.get("http://localhost:3001/users").then(result => {
+        axios.get("https://journal-app-xud3.onrender.com/users").then(result => {
             result.data.map((person) => {
                 if(person.username === user.username) { 
                     setTodos(person.todos)
