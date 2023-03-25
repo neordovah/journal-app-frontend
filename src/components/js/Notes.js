@@ -8,7 +8,7 @@ import Context from "./Context";
 const Notes = () => {
 
     const [notes, setNotes] = useState([])
-    const [input, setInput] = useState(null)
+    const [input, setInput] = useState("")
 
     let [login, setLogin, user, setUser] = useContext(Context)
 
@@ -28,12 +28,12 @@ const Notes = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if(input) {
+        if(input !== "") {
             let newNotes = notes
             newNotes.push(input)
             setNotes([...newNotes])
             axios.put("https://journal-app-xud3.onrender.com/notes", {newNotes})
-            setInput(null)
+            setInput("")
         }
     }
 
@@ -54,7 +54,7 @@ const Notes = () => {
             
                 <ul>
                     <form>
-                        <li><input type="text" onChange={(e) => setInput(e.target.value)}></input></li>
+                        <li><input type="text" value={input} onChange={(e) => setInput(e.target.value)}></input></li>
                         <button type="submit" onClick={(e) => handleSubmit(e)}>Add note</button>
                     </form>
                     {notes && notes.map((note, index) => {
