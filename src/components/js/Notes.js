@@ -33,6 +33,7 @@ const Notes = () => {
             newNotes.push(input)
             setNotes([...newNotes])
             axios.put("https://journal-app-xud3.onrender.com/notes", {newNotes})
+            setInput(null)
         }
     }
 
