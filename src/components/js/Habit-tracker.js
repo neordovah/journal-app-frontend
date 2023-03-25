@@ -6,7 +6,7 @@ import axios from "axios";
 const HabitTracker = () => {
 
     const [habits, setHabits] = useState([])
-    const [input, setInput] = useState(null)
+    const [input, setInput] = useState("")
 
     const date = new Date()
     const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
@@ -35,7 +35,7 @@ const HabitTracker = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(input) {
+        if(input !== "") {
             let newHabits = habits
 
             let monthArray = []
@@ -46,7 +46,7 @@ const HabitTracker = () => {
             setHabits([...newHabits])
             console.log(newHabits)
             axios.put("https://journal-app-xud3.onrender.com/habits", {newHabits})
-            setInput(null)
+            setInput("")
         }
     }
 
@@ -64,7 +64,7 @@ const HabitTracker = () => {
         <div id="page-main" className="page-habit">
             <h1 id="title">Habit tracker</h1>
             <form>
-                <input type="text" onChange={(e) => setInput(e.target.value)}></input>
+                <input type="text" value={input} onChange={(e) => setInput(e.target.value)}></input>
                 <button type="submit" onClick={(e) => handleSubmit(e)}>Add habit</button>
             </form>
             {habits?.map((habit, index) => {
