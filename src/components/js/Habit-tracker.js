@@ -46,6 +46,7 @@ const HabitTracker = () => {
             setHabits([...newHabits])
             console.log(newHabits)
             axios.put("https://journal-app-xud3.onrender.com/habits", {newHabits})
+            setInput(null)
         }
     }
 
