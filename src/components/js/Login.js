@@ -18,7 +18,6 @@ const Login = () => {
         e.preventDefault()
         
         setAlert({state: true, msg: "Connecting to db..."})
-                setAlert(false)
         
         if(!username || !password) {
             setAlert({state: true, msg: "All values must be provided!"})
