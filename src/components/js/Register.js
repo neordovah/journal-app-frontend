@@ -18,10 +18,9 @@ const Register = () => {
     const handleRegister = (e) => {
         e.preventDefault()
         
+        
         setAlert({state: true, msg: "Connecting to db..."})
-            setTimeout(() => {
                 setAlert(false)
-              }, 3000)
         
         if (!name || !username || !password) {
             setAlert({state: true, msg: "All values must be provided!"})
