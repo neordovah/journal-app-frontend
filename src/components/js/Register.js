@@ -20,7 +20,6 @@ const Register = () => {
         
         
         setAlert({state: true, msg: "Connecting to db..."})
-                setAlert(false)
         
         if (!name || !username || !password) {
             setAlert({state: true, msg: "All values must be provided!"})
